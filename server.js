@@ -29,14 +29,16 @@ app.use(express.static("public"));
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 var databaseUri = 'mongodb://localhost/exdb';
+var testURI = "mongodb://heroku_3xjhh7w0:sktb46iu0rfom7fhka8j4pcebe@ds133136.mlab.com:33136/heroku_3xjhh7w0";
 if(process.env.MONGODB_URI){
-  mongoose.connect(process.env.MONGODB_URI, function(err) {
+  mongoose.connect(testURI, function(err, testo) {
     if (err) {
       console.log("doesnt work");
     }
   });
 }else{
-  mongoose.connect(databaseUri);
+  console.log("connection success to heroku db");
+  // mongoose.connect(databaseUri);
 }
 
 
