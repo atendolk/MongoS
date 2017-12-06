@@ -15,6 +15,8 @@ $(document).on("click", "p", function() {
   // Save the id from the p tag
   var thisId = $(this).attr("data-id");
   var url = $(this).text();
+
+
   console.log(url);
   // Now make an ajax call for the Article
   $.ajax({
@@ -33,7 +35,7 @@ $(document).on("click", "p", function() {
       // A button to submit a new note, with the id of the article saved to it
       $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
 
-     $("#notes").append("<button data-id='" + data._id + "' id='website'>Website</button>");
+     $("#notes").append("<button data-id='" + data._id + "' id='website'>website</button>");
 
       // If there's a note in the article
       if (data.note) {
@@ -44,8 +46,9 @@ $(document).on("click", "p", function() {
       }
     });
 });
-$(document).om("click", "#website", function(){
-    window.location = "www.example.com/index.php?id=" + this.id;
+$(document).on("click", "#website", function(){
+    //when this button is clicked, let the website go to the proper URL
+
 
 });
 // When you click the savenote button
@@ -76,3 +79,4 @@ $(document).on("click", "#savenote", function() {
   $("#titleinput").val("");
   $("#bodyinput").val("");
 });
+//$("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
