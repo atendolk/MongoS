@@ -14,7 +14,8 @@ $(document).on("click", "p", function() {
   $("#notes").empty();
   // Save the id from the p tag
   var thisId = $(this).attr("data-id");
-
+  var url = $(this).text();
+  console.log(url);
   // Now make an ajax call for the Article
   $.ajax({
     method: "GET",
@@ -32,6 +33,8 @@ $(document).on("click", "p", function() {
       // A button to submit a new note, with the id of the article saved to it
       $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
 
+     $("#notes").append("<button data-id='" + data._id + "' id='website'>Website</button>");
+
       // If there's a note in the article
       if (data.note) {
         // Place the title of the note in the title input
@@ -41,7 +44,10 @@ $(document).on("click", "p", function() {
       }
     });
 });
+$(document).om("click", "#website", function(){
+    window.location = "www.example.com/index.php?id=" + this.id;
 
+});
 // When you click the savenote button
 $(document).on("click", "#savenote", function() {
   // Grab the id associated with the article from the submit button
@@ -61,7 +67,7 @@ $(document).on("click", "#savenote", function() {
     // With that done
     .done(function(data) {
       // Log the response
-      console.log(data);
+    //  console.log(data);
       // Empty the notes section
       $("#notes").empty();
     });
