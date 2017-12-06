@@ -39,9 +39,9 @@ if(process.env.MONGODB_URI){
 mongoose.Promise = Promise;
 
 
-mongoose.connect("mongodb://localhost/exdb", {
-  useMongoClient: true
-});
+// mongoose.connect("mongodb://localhost/exdb", {
+//   useMongoClient: true
+// });
 
 // Routes
 
