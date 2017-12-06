@@ -12,7 +12,7 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 // Initialize Express
 var app = express();
@@ -29,16 +29,16 @@ app.use(express.static("public"));
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 var databaseUri = 'mongodb://localhost/exdb';
-var testURI = "mongodb://heroku_3xjhh7w0:sktb46iu0rfom7fhka8j4pcebe@ds133136.mlab.com:33136/heroku_3xjhh7w0";
+//var testURI = "mongodb://heroku_3xjhh7w0:sktb46iu0rfom7fhka8j4pcebe@ds133136.mlab.com:33136/heroku_3xjhh7w0";
 if(process.env.MONGODB_URI){
-  mongoose.connect(testURI, function(err, testo) {
+  mongoose.connect(process.env.MONGO_URI, function(err, testo) {
     if (err) {
       console.log("doesnt work");
     }
   });
 }else{
   console.log("connection success to heroku db");
-  // mongoose.connect(databaseUri);
+  mongoose.connect(databaseUri);
 }
 
 
