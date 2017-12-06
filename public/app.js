@@ -15,7 +15,7 @@ $(document).on("click", "p", function() {
   // Save the id from the p tag
   var thisId = $(this).attr("data-id");
   var url = $(this).text();
-
+//  var link = $(this).attr("href");
 
   console.log(url);
   // Now make an ajax call for the Article
@@ -48,7 +48,7 @@ $(document).on("click", "p", function() {
 });
 $(document).on("click", "#website", function(){
     //when this button is clicked, let the website go to the proper URL
-
+var link = $(this).attr("href");
 
 });
 // When you click the savenote button
